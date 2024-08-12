@@ -7,6 +7,9 @@ import Slider from "react-slick";
 import InfoCard from "@/components/InfoCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 export default function Home() {
   const [isBlurred, setIsBlurred] = useState(false);
   const [selectedButton, setSelectedButton] = useState(null);
@@ -17,7 +20,11 @@ export default function Home() {
     setShowContent(false); // Ocultar contenido actual
     setSelectedButton(buttonNumber);
   };
-
+  useEffect(() => {
+    Aos.init({
+      duration: 1000,
+    });
+  }, []);
   useEffect(() => {
     if (selectedButton !== null) {
       // Agregar vibración suave al cuerpo al cambiar de botón
@@ -48,49 +55,57 @@ export default function Home() {
                   backgroundPosition: "center",
                 }}
               />
-              <div className="relative max-w-5xl mx-auto text-center">
-                <p className="text-lg mb-6">
-                  The Joy of Creation (Remaster 2024) is a psychological horror
-                  game developed by Nikson, which released a demo in 2024 on
-                  Steam as a preview of the full version expected in summer
-                  2025. This remaster is a revamp of The Joy of Creation: Story
-                  Mode, but with significant improvements in graphics, gameplay,
-                  and narrative.
-                </p>
-                <h3 className="text-2xl font-bold my-6">
-                  Synopsis and Gameplay:
-                </h3>
-                <p className="text-lg mb-6">
-                  Like its predecessor, the game follows the survival and horror
-                  theme within the Five Nights at Freddy's (FNaF) universe.
-                  However, this new version introduces new mechanics, more
-                  detailed scenarios, and a deeper and expanded story. Players
-                  once again face twisted and terrifying versions of the
-                  animatronics, now with more realistic animations and designs
-                  that enhance the horror experience.
-                </p>
-                <p className="text-lg mb-6">
-                  The demo offers a glimpse of the updated visual style and
-                  gameplay changes, presenting players with a much more
-                  interactive and dynamic environment, with new ways to explore,
-                  hide, and survive. The game's atmosphere remains unsettling,
-                  with a focus on building tension and managing suspense.
-                </p>
-                <h3 className="text-2xl font-bold my-6">Reception:</h3>
-                <p className="text-lg mb-6">
-                  Since its release, The Joy of Creation's demo on Steam has
-                  been enthusiastically received by the community, especially by
-                  fans of the FNaF universe and horror games in general. Players
-                  have praised the improvements in visual quality and the
-                  intensity of the gameplay experience, generating high
-                  expectations for the full version.
-                </p>
-                <p className="text-lg mb-6">
-                  This release on Steam marks an important step for The Joy of
-                  Creation, taking it from a fanmade project to a more formal
-                  and accessible production on a mass distribution platform.
-                </p>
-              </div>
+              <section className="p-8">
+                <div data-aos="fade-up" className="text-center">
+                  <div className="relative max-w-5xl mx-auto text-center">
+                    <p className="text-lg mb-6">
+                      The Joy of Creation (Remaster 2024) is a psychological
+                      horror game developed by Nikson, which released a demo in
+                      2024 on Steam as a preview of the full version expected in
+                      summer 2025. This remaster is a revamp of The Joy of
+                      Creation: Story Mode, but with significant improvements in
+                      graphics, gameplay, and narrative.
+                    </p>
+                    <h3 className="text-2xl font-bold my-6">
+                      Synopsis and Gameplay:
+                    </h3>
+                    <p className="text-lg mb-6">
+                      Like its predecessor, the game follows the survival and
+                      horror theme within the Five Nights at Freddy's (FNaF)
+                      universe. However, this new version introduces new
+                      mechanics, more detailed scenarios, and a deeper and
+                      expanded story. Players once again face twisted and
+                      terrifying versions of the animatronics, now with more
+                      realistic animations and designs that enhance the horror
+                      experience.
+                    </p>
+                    <p className="text-lg mb-6">
+                      The demo offers a glimpse of the updated visual style and
+                      gameplay changes, presenting players with a much more
+                      interactive and dynamic environment, with new ways to
+                      explore, hide, and survive. The game's atmosphere remains
+                      unsettling, with a focus on building tension and managing
+                      suspense.
+                    </p>
+                    <h3 className="text-2xl font-bold my-6">Reception:</h3>
+                    <p className="text-lg mb-6">
+                      Since its release, The Joy of Creation's demo on Steam has
+                      been enthusiastically received by the community,
+                      especially by fans of the FNaF universe and horror games
+                      in general. Players have praised the improvements in
+                      visual quality and the intensity of the gameplay
+                      experience, generating high expectations for the full
+                      version.
+                    </p>
+                    <p className="text-lg mb-6">
+                      This release on Steam marks an important step for The Joy
+                      of Creation, taking it from a fanmade project to a more
+                      formal and accessible production on a mass distribution
+                      platform.
+                    </p>
+                  </div>
+                </div>
+              </section>
             </section>
             <section className="relative w-full p-8 bg-black">
               <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" />
@@ -98,46 +113,50 @@ export default function Home() {
                 <h2 className="text-4xl font-bold mb-6">
                   Gameplay Screenshots
                 </h2>
-                <div className="w-7/12 border-2 border-white/25 mx-auto content-evenly">
-                  <Slider className="text-white" {...settings}>
-                    <div className="justify-center">
-                      <Image
-                        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_3257b4a5a5ef8890b102abe541223ac43f8568c2.600x338.jpg?t=1722624886"
-                        alt="Gameplay Screenshot 1"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
+                <section className="p-8">
+                  <div data-aos="fade-up" className="text-center">
+                    <div className="w-7/12 border-2 border-white/25 mx-auto content-evenly">
+                      <Slider className="text-white" {...settings}>
+                        <div className="justify-center">
+                          <Image
+                            src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_3257b4a5a5ef8890b102abe541223ac43f8568c2.600x338.jpg?t=1722624886"
+                            alt="Gameplay Screenshot 1"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_d6c3bc1794ef83d5d97bbf7473c98d690f55cb4c.600x338.jpg?t=1722624886"
+                            alt="Gameplay Screenshot 2"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_528538fcce410745c3bcc0190f6594aecaeb6d52.600x338.jpg?t=1722624886"
+                            alt="Gameplay Screenshot 3"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_5c2d808e9eb594d659f915add4265d935ccb09e4.600x338.jpg?t=1722624886"
+                            alt="Gameplay Screenshot 4"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                      </Slider>
                     </div>
-                    <div>
-                      <Image
-                        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_d6c3bc1794ef83d5d97bbf7473c98d690f55cb4c.600x338.jpg?t=1722624886"
-                        alt="Gameplay Screenshot 2"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_528538fcce410745c3bcc0190f6594aecaeb6d52.600x338.jpg?t=1722624886"
-                        alt="Gameplay Screenshot 3"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_5c2d808e9eb594d659f915add4265d935ccb09e4.600x338.jpg?t=1722624886"
-                        alt="Gameplay Screenshot 4"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                  </Slider>
-                </div>
+                  </div>
+                </section>
               </div>
             </section>
           </div>
@@ -153,46 +172,50 @@ export default function Home() {
                   backgroundPosition: "center",
                 }}
               />
-              <div className="relative max-w-5xl mx-auto text-center">
-                <p className="text-lg mb-6">
-                  The Joy of Creation: Story Mode is a psychological horror
-                  video game developed by Nikson, released in 2017 and published
-                  on GameJolt. This game is an expanded and more
-                  narrative-driven version of the original game, The Joy of
-                  Creation, which was initially a simple survival game inspired
-                  by the Five Nights at Freddy's (FNaF) series.
-                </p>
-                <h3 className="text-2xl font-bold my-6">
-                  Synopsis and Gameplay:
-                </h3>
-                <p className="text-lg mb-6">
-                  The game follows the story of Scott Cawthon, the fictional
-                  creator of FNaF, who faces terrifying, disfigured versions of
-                  the animatronics of his own creation. The plot unfolds across
-                  five chapters, each depicting a different phase of Scott's
-                  life, from childhood to adulthood.
-                </p>
-                <p className="text-lg mb-6">
-                  Each level has a unique layout and mechanics, with the player
-                  needing to accomplish different objectives while being chased
-                  by the animatronics. Gameplay focuses on exploration,
-                  puzzle-solving, and evading enemies, creating an immersive and
-                  terrifying experience.
-                </p>
-                <h3 className="text-2xl font-bold my-6">Reception:</h3>
-                <p className="text-lg mb-6">
-                  The game was very well received by the gaming community,
-                  especially by FNaF fans. It was praised for its eerie
-                  atmosphere, improved graphics, and immersive narrative that
-                  adds an extra layer of depth to the FNaF universe.
-                </p>
-                <p className="text-lg mb-6">
-                  The Joy of Creation: Story Mode has become one of the most
-                  popular fanmade games within the FNaF fandom and has been
-                  hailed for its quality and the dedication Nikson put into its
-                  development.
-                </p>
-              </div>
+              <section className="p-8">
+                <div data-aos="fade-up" className="text-center">
+                  <div className="relative max-w-5xl mx-auto text-center">
+                    <p className="text-lg mb-6">
+                      The Joy of Creation: Story Mode is a psychological horror
+                      video game developed by Nikson, released in 2017 and
+                      published on GameJolt. This game is an expanded and more
+                      narrative-driven version of the original game, The Joy of
+                      Creation, which was initially a simple survival game
+                      inspired by the Five Nights at Freddy's (FNaF) series.
+                    </p>
+                    <h3 className="text-2xl font-bold my-6">
+                      Synopsis and Gameplay:
+                    </h3>
+                    <p className="text-lg mb-6">
+                      The game follows the story of Scott Cawthon, the fictional
+                      creator of FNaF, who faces terrifying, disfigured versions
+                      of the animatronics of his own creation. The plot unfolds
+                      across five chapters, each depicting a different phase of
+                      Scott's life, from childhood to adulthood.
+                    </p>
+                    <p className="text-lg mb-6">
+                      Each level has a unique layout and mechanics, with the
+                      player needing to accomplish different objectives while
+                      being chased by the animatronics. Gameplay focuses on
+                      exploration, puzzle-solving, and evading enemies, creating
+                      an immersive and terrifying experience.
+                    </p>
+                    <h3 className="text-2xl font-bold my-6">Reception:</h3>
+                    <p className="text-lg mb-6">
+                      The game was very well received by the gaming community,
+                      especially by FNaF fans. It was praised for its eerie
+                      atmosphere, improved graphics, and immersive narrative
+                      that adds an extra layer of depth to the FNaF universe.
+                    </p>
+                    <p className="text-lg mb-6">
+                      The Joy of Creation: Story Mode has become one of the most
+                      popular fanmade games within the FNaF fandom and has been
+                      hailed for its quality and the dedication Nikson put into
+                      its development.
+                    </p>
+                  </div>
+                </div>
+              </section>
             </section>
             <section className="relative w-full p-8 bg-black">
               <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" />
@@ -200,55 +223,59 @@ export default function Home() {
                 <h2 className="text-4xl font-bold mb-6">
                   Gameplay Screenshots
                 </h2>
-                <div className="w-7/12 border-2 border-white/25 mx-auto content-evenly">
-                  <Slider className="text-white" {...settings}>
-                    <div className="justify-center">
-                      <Image
-                        src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_at-iwk4nhvq.png"
-                        alt="Gameplay Screenshot 1"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
+                <section className="p-8">
+                  <div data-aos="fade-up" className="text-center">
+                    <div className="w-7/12 border-2 border-white/25 mx-auto content-evenly">
+                      <Slider className="text-white" {...settings}>
+                        <div className="justify-center">
+                          <Image
+                            src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_at-iwk4nhvq.png"
+                            alt="Gameplay Screenshot 1"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_basement-e6ux7bpf.png"
+                            alt="Gameplay Screenshot 2"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_o-n8kvgzfp.png"
+                            alt="Gameplay Screenshot 3"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_bedroom-67ncacb5.png"
+                            alt="Gameplay Screenshot 4"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/highresscreenshot00034-in7fkanr.png"
+                            alt="Gameplay Screenshot 4"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                      </Slider>
                     </div>
-                    <div>
-                      <Image
-                        src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_basement-e6ux7bpf.png"
-                        alt="Gameplay Screenshot 2"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_o-n8kvgzfp.png"
-                        alt="Gameplay Screenshot 3"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/t_bedroom-67ncacb5.png"
-                        alt="Gameplay Screenshot 4"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="https://i.gjcdn.net/public-data/games/2/218/139218/screenshots/highresscreenshot00034-in7fkanr.png"
-                        alt="Gameplay Screenshot 4"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                  </Slider>
-                </div>
+                  </div>
+                </section>
               </div>
             </section>
           </div>
@@ -264,52 +291,59 @@ export default function Home() {
                   backgroundPosition: "center",
                 }}
               />
-              <div className="relative max-w-5xl mx-auto text-center">
-                <p className="text-lg mb-6">
-                  The Joy of Creation: Reborn is an indie horror video game
-                  developed by Nikson, released in 2016 on GameJolt. This game
-                  is a reimagined version of the original title, The Joy of
-                  Creation, and is known for its first-person horror gameplay
-                  inspired by the Five Nights at Freddy's (FNaF) series.
-                </p>
-                <h3 className="text-2xl font-bold my-6">
-                  Synopsis and Gameplay:
-                </h3>
-                <p className="text-lg mb-6">
-                  In The Joy of Creation: Reborn, players take on the role of a
-                  character who must survive a series of dark, labyrinthine
-                  environments while being hunted by warped and terrifyingly
-                  menacing versions of FNaF's animatronics. Unlike the original
-                  FNaF games, where the player is mostly static, in this game
-                  players are given freedom of movement and must explore the
-                  environments to accomplish objectives and avoid capture.
-                </p>
-                <p className="text-lg mb-6">
-                  Each level offers a unique gameplay experience, with different
-                  animatronics and challenges that test the player's ability to
-                  stay calm under pressure and use the environment to their
-                  advantage. The atmosphere of the game is tense, with a focus
-                  on darkness, ambient sound, and time management to create a
-                  constant sense of impending danger.
-                </p>
-                <h3 className="text-2xl font-bold my-6">Reception:</h3>
-                <p className="text-lg mb-6">
-                  The Joy of Creation: Reborn was very well received by the
-                  horror gaming community and FNaF fans. It was praised for its
-                  ability to create an intense horror experience and its
-                  innovative approach to survival within the genre. The
-                  combination of freedom of movement and the constant threat of
-                  animatronics created an immersive and terrifying experience
-                  that has maintained its popularity in the indie gaming
-                  community.
-                </p>
-                <p className="text-lg mb-6">
-                  This title helped cement Nikson's reputation as a talented
-                  developer in the fanmade games scene and laid the groundwork
-                  for future installments such as The Joy of Creation: Story
-                  Mode and the remaster planned for 2025.
-                </p>
-              </div>
+              <section className="p-8">
+                <div data-aos="fade-up" className="text-center">
+                  <div className="relative max-w-5xl mx-auto text-center">
+                    <p className="text-lg mb-6">
+                      The Joy of Creation: Reborn is an indie horror video game
+                      developed by Nikson, released in 2016 on GameJolt. This
+                      game is a reimagined version of the original title, The
+                      Joy of Creation, and is known for its first-person horror
+                      gameplay inspired by the Five Nights at Freddy's (FNaF)
+                      series.
+                    </p>
+                    <h3 className="text-2xl font-bold my-6">
+                      Synopsis and Gameplay:
+                    </h3>
+                    <p className="text-lg mb-6">
+                      In The Joy of Creation: Reborn, players take on the role
+                      of a character who must survive a series of dark,
+                      labyrinthine environments while being hunted by warped and
+                      terrifyingly menacing versions of FNaF's animatronics.
+                      Unlike the original FNaF games, where the player is mostly
+                      static, in this game players are given freedom of movement
+                      and must explore the environments to accomplish objectives
+                      and avoid capture.
+                    </p>
+                    <p className="text-lg mb-6">
+                      Each level offers a unique gameplay experience, with
+                      different animatronics and challenges that test the
+                      player's ability to stay calm under pressure and use the
+                      environment to their advantage. The atmosphere of the game
+                      is tense, with a focus on darkness, ambient sound, and
+                      time management to create a constant sense of impending
+                      danger.
+                    </p>
+                    <h3 className="text-2xl font-bold my-6">Reception:</h3>
+                    <p className="text-lg mb-6">
+                      The Joy of Creation: Reborn was very well received by the
+                      horror gaming community and FNaF fans. It was praised for
+                      its ability to create an intense horror experience and its
+                      innovative approach to survival within the genre. The
+                      combination of freedom of movement and the constant threat
+                      of animatronics created an immersive and terrifying
+                      experience that has maintained its popularity in the indie
+                      gaming community.
+                    </p>
+                    <p className="text-lg mb-6">
+                      This title helped cement Nikson's reputation as a talented
+                      developer in the fanmade games scene and laid the
+                      groundwork for future installments such as The Joy of
+                      Creation: Story Mode and the remaster planned for 2025.
+                    </p>
+                  </div>
+                </div>
+              </section>
             </section>
             <section className="relative w-full p-8 bg-black">
               <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" />
@@ -317,43 +351,47 @@ export default function Home() {
                 <h2 className="text-4xl font-bold mb-6">
                   Gameplay Screenshots
                 </h2>
-                <div className="w-7/12 border-2 border-white/25 mx-auto content-evenly">
-                  <Slider className="text-white" {...settings}>
-                    <div className="justify-center">
-                      <Image
-                        src="https://res.cloudinary.com/dudftt5ha/image/upload/v1723483220/beixg0udxw6viqkiyx4m.png"
-                        alt="Gameplay Screenshot 1"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
+                <section className="p-8">
+                  <div data-aos="fade-up" className="text-center">
+                    <div className="w-7/12 border-2 border-white/25 mx-auto content-evenly">
+                      <Slider className="text-white" {...settings}>
+                        <div className="justify-center">
+                          <Image
+                            src="https://res.cloudinary.com/dudftt5ha/image/upload/v1723483220/beixg0udxw6viqkiyx4m.png"
+                            alt="Gameplay Screenshot 1"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://res.cloudinary.com/dudftt5ha/image/upload/v1723483286/wqsqlt48duax8trghciv.png"
+                            alt="Gameplay Screenshot 2"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                        <div>
+                          <Image
+                            src="https://res.cloudinary.com/dudftt5ha/image/upload/v1723483353/rlolraqcpwle1u9kl5ce.png"
+                            alt="Gameplay Screenshot 3"
+                            width={800}
+                            height={450}
+                            className="rounded-lg shadow-lg w-full"
+                          />
+                        </div>
+                      </Slider>
                     </div>
-                    <div>
-                      <Image
-                        src="https://res.cloudinary.com/dudftt5ha/image/upload/v1723483286/wqsqlt48duax8trghciv.png"
-                        alt="Gameplay Screenshot 2"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="https://res.cloudinary.com/dudftt5ha/image/upload/v1723483353/rlolraqcpwle1u9kl5ce.png"
-                        alt="Gameplay Screenshot 3"
-                        width={800}
-                        height={450}
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                    </div>
-                  </Slider>
-                </div>
+                  </div>
+                </section>
               </div>
             </section>
           </div>
         );
       default:
-        return <p>Pick a game.</p>;
+        return <p></p>;
     }
   };
 
@@ -381,7 +419,6 @@ export default function Home() {
 
   return (
     <div className="bg-black relative text-white">
-   
       <NavBar setBlur={setIsBlurred} />
 
       <main
@@ -428,28 +465,31 @@ export default function Home() {
         </section>
 
         <div className="flex flex-col items-center">
-          <h2 className="text-4xl font-bold my-6">About the Game</h2>
-          {/* Botones */}
-          <div className="flex space-x-4 my-4">
-            <button
-              className="bg-gray-500 text-gray-200 px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-700 hover:text-gray-400 hover:shadow-gray-700 hover:shadow-[0_0_25px_5px] hover:translate-y-1 hover:-translate-x-1"
-              onClick={() => handleClick(1)}
-            >
-              The Joy of Creation (Demo)
-            </button>
-            <button
-              className="bg-gray-500 text-gray-200 px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-700 hover:text-gray-400 hover:shadow-gray-700 hover:shadow-[0_0_25px_5px] hover:translate-y-1 hover:-translate-x-1"
-              onClick={() => handleClick(2)}
-            >
-              Story Mode (2017)
-            </button>
-            <button
-              className="bg-gray-500 text-gray-200 px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-700 hover:text-gray-400 hover:shadow-gray-700 hover:shadow-[0_0_25px_5px] hover:translate-y-1 hover:-translate-x-1"
-              onClick={() => handleClick(3)}
-            >
-              The Joy of Creation Reborn
-            </button>
-          </div>
+          <section className="p-8">
+            <div data-aos="fade-up" className="text-center">
+              <h2 className="text-4xl font-bold my-6">About the Game</h2>
+              <div className="flex space-x-4 my-4">
+                <button
+                  className="bg-gray-500 text-gray-200 px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-700 hover:text-gray-400 hover:shadow-gray-700 hover:shadow-[0_0_25px_5px] hover:translate-y-1 hover:-translate-x-1"
+                  onClick={() => handleClick(1)}
+                >
+                  The Joy of Creation (Demo)
+                </button>
+                <button
+                  className="bg-gray-500 text-gray-200 px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-700 hover:text-gray-400 hover:shadow-gray-700 hover:shadow-[0_0_25px_5px] hover:translate-y-1 hover:-translate-x-1"
+                  onClick={() => handleClick(2)}
+                >
+                  Story Mode (2017)
+                </button>
+                <button
+                  className="bg-gray-500 text-gray-200 px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-700 hover:text-gray-400 hover:shadow-gray-700 hover:shadow-[0_0_25px_5px] hover:translate-y-1 hover:-translate-x-1"
+                  onClick={() => handleClick(3)}
+                >
+                  The Joy of Creation Reborn
+                </button>
+              </div>
+            </div>
+          </section>
 
           {/* Contenido dependiendo del botón presionado */}
           <div className="mt-4">{renderContent()}</div>
@@ -458,36 +498,41 @@ export default function Home() {
         {/* Gameplay Screenshot Section */}
 
         {/* News Section */}
+
         <section className="relative w-full p-8 bg-black">
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 "
-            style={{
-              backgroundImage: `url('https://res.cloudinary.com/dudftt5ha/image/upload/v1723435764/mkmgnuvreujpmvq2fxce.png')`,
-            }}
-          />
-          <div className="relative max-w-5xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6">News</h2>
-            <div className="grid gap-5 px-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-              <InfoCard
-                imageUrl="https://res.cloudinary.com/dudftt5ha/image/upload/v1723433529/e2nowyhpy1f3tl9qdv1y.png"
-                title="My Info Card"
-                content="This is the content of the card. It can be a description or any useful information."
-                createdAt="August 11, 2024"
+          <section className="p-8">
+            <div data-aos="fade-up" className="text-center">
+              <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 "
+                style={{
+                  backgroundImage: `url('https://res.cloudinary.com/dudftt5ha/image/upload/v1723435764/mkmgnuvreujpmvq2fxce.png')`,
+                }}
               />
-              <InfoCard
-                imageUrl="https://res.cloudinary.com/dudftt5ha/image/upload/v1723433529/e2nowyhpy1f3tl9qdv1y.png"
-                title="My Info Card"
-                content="This is the content of the card. It can be a description or any useful information."
-                createdAt="August 11, 2024"
-              />
-              <InfoCard
-                imageUrl="https://res.cloudinary.com/dudftt5ha/image/upload/v1723433529/e2nowyhpy1f3tl9qdv1y.png"
-                title="My Info Card"
-                content="This is the content of the card. It can be a description or any useful information."
-                createdAt="August 11, 2024"
-              />
+              <div className="relative max-w-5xl mx-auto text-center">
+                <h2 className="text-4xl font-bold mb-6">News</h2>
+                <div className="grid gap-5 px-8 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
+                  <InfoCard
+                    imageUrl="https://res.cloudinary.com/dudftt5ha/image/upload/v1723433529/e2nowyhpy1f3tl9qdv1y.png"
+                    title="My Info Card"
+                    content="This is the content of the card. It can be a description or any useful information."
+                    createdAt="August 11, 2024"
+                  />
+                  <InfoCard
+                    imageUrl="https://res.cloudinary.com/dudftt5ha/image/upload/v1723433529/e2nowyhpy1f3tl9qdv1y.png"
+                    title="My Info Card"
+                    content="This is the content of the card. It can be a description or any useful information."
+                    createdAt="August 11, 2024"
+                  />
+                  <InfoCard
+                    imageUrl="https://res.cloudinary.com/dudftt5ha/image/upload/v1723433529/e2nowyhpy1f3tl9qdv1y.png"
+                    title="My Info Card"
+                    content="This is the content of the card. It can be a description or any useful information."
+                    createdAt="August 11, 2024"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
         </section>
 
         {/* Footer Section */}
