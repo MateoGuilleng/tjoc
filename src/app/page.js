@@ -8,6 +8,7 @@ import InfoCard from "@/components/InfoCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Aos from "aos";
+import MusicPlayer from "@/components/MusicPlayer";
 import "aos/dist/aos.css";
 
 export default function Home() {
@@ -540,6 +541,7 @@ export default function Home() {
           <p>&copy; 2024 THE JOY OF CREATION. All rights reserved.</p>
         </footer>
       </main>
+      <MusicPlayer />
     </div>
   );
 }
