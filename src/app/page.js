@@ -435,7 +435,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-black relative text-white max-w-screen-xl">
+    <div className="bg-black relative text-white">
       <NavBar setBlur={setIsBlurred} />
 
       <main
