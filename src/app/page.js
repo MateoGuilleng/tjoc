@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import NavBar from "@/components/NavBar";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import InfoCard from "@/components/InfoCard";
 import "slick-carousel/slick/slick.css";
@@ -15,6 +15,22 @@ export default function Home() {
   const [isBlurred, setIsBlurred] = useState(false);
   const [selectedButton, setSelectedButton] = useState(null);
   const [showContent, setShowContent] = useState(false);
+  
+  const lanternRef = useRef(null);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      // Calcula la posición del fondo para centrar el gradiente en el cursor
+      const x = e.clientX - window.innerWidth / 2;
+      const y = e.clientY - window.innerHeight / 2;
+      lanternRef.current.style.backgroundPosition = `${x}px ${y}px`;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
 
   // Función para manejar el clic en los botones
   const handleClick = (buttonNumber) => {
@@ -419,7 +435,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-black relative text-white">
+    <div className="bg-black relative text-white max-w-screen-xl">
       <NavBar setBlur={setIsBlurred} />
 
       <main
@@ -541,6 +557,7 @@ export default function Home() {
           <p>&copy; 2024 THE JOY OF CREATION. All rights reserved.</p>
         </footer>
       </main>
+      <div className="lantern-effect" ref={lanternRef}></div>
       <MusicPlayer />
     </div>
   );
