@@ -94,3 +94,126 @@ body {
   transition: background-position 0.1s ease-out;
 }
 
+
+
+.image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-container img {
+  transition: filter 1s ease;
+}
+
+.image-container img:hover {
+  filter: sepia(1) hue-rotate(-100deg) saturate(3); /* Efecto rojo */
+}
+
+.flash-effect {
+  animation: flash 0.2s ease-in-out;
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+
+/* Clase para oscurecer la página */
+.darken-page {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: background-color 0.5s ease;
+}
+
+/* Clase para oscurecer aún más la página */
+.darken-page-more {
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: background-color 1s ease;
+}
+
+/* Efecto de parpadeo */
+.flash-effect-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9997; /* Asegura que esté por encima de todos los elementos */
+  pointer-events: none; /* No interfiere con la interacción del usuario */
+  background: rgba(0, 0, 0, 0); /* Inicialmente transparente */
+}
+
+
+.red-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9997; /* Asegura que esté por encima de todos los elementos */
+  pointer-events: none; /* No interfiere con la interacción del usuario */
+  background-color: #ff4d4d3d; /* Un color rojo */
+  transition: background-color 3s ease-in-out; /* Para una transición suave */
+}
+
+.flash-effect {
+  animation: flash-light 2.4s; /* Dura 2 segundos, 10 parpadeos */
+}
+
+@keyframes flash-light {
+  0% {
+    background: rgba(0, 0, 0, 0); /* Luz inicial */
+  }
+  70% {
+    background: rgba(0, 0, 0, 1); /* Oscuridad total */
+  }
+  72% {
+    background: rgba(0, 0, 0, 0.9); /* Oscuridad intermitente */
+  }
+  74% {
+    background: rgba(0, 0, 0, 0.1); /* Oscuridad intermitente */
+  }
+  76% {
+    background: rgba(0, 0, 0, 0.7); /* Oscuridad intermitente */
+  }
+  78% {
+    background: rgba(0, 0, 0, 0.9); /* Oscuridad intermitente */
+  }
+  80% {
+    background: rgba(0, 0, 0, 0.5); /* Oscuridad intermitente */
+  }
+  82% {
+    background: rgba(0, 0, 0, 0.1); /* Oscuridad intermitente */
+  }
+  84% {
+    background: rgba(0, 0, 0, 0.7); /* Oscuridad intermitente */
+  }
+  86% {
+    background: rgba(0, 0, 0, 0.9); /* Oscuridad intermitente */
+  }
+  88% {
+    background: rgba(0, 0, 0, 0.1); /* Oscuridad intermitente */
+  }
+  90% {
+    background: rgba(0, 0, 0, 9); /* Oscuridad total */
+  }
+  100% {
+    background: rgba(0, 0, 0, 0.1); /* Oscuridad intermitente */
+  }
+}
+
+audio {
+  width: 100px;
+  height: 20px;
+}

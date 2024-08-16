@@ -15,8 +15,57 @@ export default function Home() {
   const [isBlurred, setIsBlurred] = useState(false);
   const [selectedButton, setSelectedButton] = useState(null);
   const [showContent, setShowContent] = useState(false);
-  
+  const [timesFlahsed, setTimesFlahsed] = useState(4);
   const lanternRef = useRef(null);
+
+  const soundRef = useRef(new Audio("efecto.mp3")); // Reemplaza con la ruta al sonido
+  const flashEffectRef = useRef(null);
+  const redEffectRef = useRef(null);
+  const [timeoutId, setTimeoutId] = useState(null);
+
+  if (timesFlahsed === 5) {
+    redEffectRef.current.classList.add("red-background");
+    // Desplazar la página hacia arriba
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Desplazamiento suave
+    });
+  }
+
+  // Ajusta el volumen del audio
+  soundRef.current.volume = 0.1; // Volumen más bajo (0.1 es 10% del volumen máximo)
+
+  const handleMouseEnter = (e) => {
+    soundRef.current.play(); // Reproduce el sonido inmediatamente
+
+    // Activa el parpadeo
+    flashEffectRef.current.classList.add("flash-effect");
+
+    // Configura un timeout para eliminar la imagen
+    const destroyTimeout = setTimeout(() => {
+      e.target.remove(); // Elimina la imagen del DOM
+
+      setTimesFlahsed((prevTimes) => prevTimes + 1);
+
+      setTimeout(() => {
+        flashEffectRef.current.classList.remove("flash-effect"); // Detiene el efecto después de 2 segundos
+      }, 1700); // Duración del efecto de parpadeo
+    }, 1700); // 2 segundos de espera para destruir la imagen
+
+    setTimeoutId(destroyTimeout); // Guarda el timeout para poder limpiarlo
+  };
+
+  const handleMouseLeave = () => {
+    soundRef.current.pause(); // Pausa el sonido cuando el mouse sale
+    soundRef.current.currentTime = 0; // Reinicia el sonido
+
+    // Detiene el parpadeo y limpia el timeout si el mouse sale antes de 2 segundos
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+      setTimeoutId(null);
+    }
+    flashEffectRef.current.classList.remove("flash-effect");
+  };
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -26,9 +75,9 @@ export default function Home() {
       lanternRef.current.style.backgroundPosition = `${x}px ${y}px`;
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -120,6 +169,16 @@ export default function Home() {
                       formal and accessible production on a mass distribution
                       platform.
                     </p>
+                    <div className="image-container">
+                      <img
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/233a722d-6c16-4c20-84ed-5add165cde4c/dfss1kk-43eee3b2-48ae-4783-9f3b-cf362c0d3ae1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIzM2E3MjJkLTZjMTYtNGMyMC04NGVkLTVhZGQxNjVjZGU0Y1wvZGZzczFray00M2VlZTNiMi00OGFlLTQ3ODMtOWYzYi1jZjM2MmMwZDNhZTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yh65kgusSgeYzpcBUZMHfrnU7VdXvsEXI-5nEdsRxWA"
+                        width={100}
+                        height={100}
+                        alt="Efecto de Imagen"
+                      />
+                    </div>
                   </div>
                 </div>
               </section>
@@ -289,6 +348,16 @@ export default function Home() {
                             className="rounded-lg shadow-lg w-full"
                           />
                         </div>
+                        <div className="image-container">
+                          <img
+                            onMouseEnter={handleMouseEnter}
+                            onMouseLeave={handleMouseLeave}
+                            src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/233a722d-6c16-4c20-84ed-5add165cde4c/dfss1kk-43eee3b2-48ae-4783-9f3b-cf362c0d3ae1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIzM2E3MjJkLTZjMTYtNGMyMC04NGVkLTVhZGQxNjVjZGU0Y1wvZGZzczFray00M2VlZTNiMi00OGFlLTQ3ODMtOWYzYi1jZjM2MmMwZDNhZTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yh65kgusSgeYzpcBUZMHfrnU7VdXvsEXI-5nEdsRxWA"
+                            width={100}
+                            height={100}
+                            alt="Efecto de Imagen"
+                          />
+                        </div>
                       </Slider>
                     </div>
                   </div>
@@ -319,6 +388,16 @@ export default function Home() {
                       gameplay inspired by the Five Nights at Freddy's (FNaF)
                       series.
                     </p>
+                    <div className="image-container">
+                      <img
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/233a722d-6c16-4c20-84ed-5add165cde4c/dfss1kk-43eee3b2-48ae-4783-9f3b-cf362c0d3ae1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIzM2E3MjJkLTZjMTYtNGMyMC04NGVkLTVhZGQxNjVjZGU0Y1wvZGZzczFray00M2VlZTNiMi00OGFlLTQ3ODMtOWYzYi1jZjM2MmMwZDNhZTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yh65kgusSgeYzpcBUZMHfrnU7VdXvsEXI-5nEdsRxWA"
+                        width={100}
+                        height={100}
+                        alt="Efecto de Imagen"
+                      />
+                    </div>
                     <h3 className="text-2xl font-bold my-6">
                       Synopsis and Gameplay:
                     </h3>
@@ -484,7 +563,20 @@ export default function Home() {
         <div className="flex flex-col items-center">
           <section className="p-8">
             <div data-aos="fade-up" className="text-center">
-              <h2 className="text-4xl font-bold my-6">About the Game</h2>
+              <div className="">
+                <div className="image-container">
+                  <img
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                    src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/233a722d-6c16-4c20-84ed-5add165cde4c/dfss1kk-43eee3b2-48ae-4783-9f3b-cf362c0d3ae1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIzM2E3MjJkLTZjMTYtNGMyMC04NGVkLTVhZGQxNjVjZGU0Y1wvZGZzczFray00M2VlZTNiMi00OGFlLTQ3ODMtOWYzYi1jZjM2MmMwZDNhZTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yh65kgusSgeYzpcBUZMHfrnU7VdXvsEXI-5nEdsRxWA"
+                    width={100}
+                    height={100}
+                    alt="Efecto de Imagen"
+                  />
+                </div>
+                <h2 className="text-4xl font-bold my-6">About the Game</h2>
+              </div>
+
               <div className="flex space-x-4 my-4">
                 <button
                   className="bg-gray-500 text-gray-200 px-4 py-2 rounded-lg transition duration-300 ease-in-out transform hover:bg-gray-700 hover:text-gray-400 hover:shadow-gray-700 hover:shadow-[0_0_25px_5px] hover:translate-y-1 hover:-translate-x-1"
@@ -555,10 +647,32 @@ export default function Home() {
         {/* Footer Section */}
         <footer className="w-full p-6 bg-black text-white text-center">
           <p>&copy; 2024 THE JOY OF CREATION. All rights reserved.</p>
+          <div className="image-container">
+            <img
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/233a722d-6c16-4c20-84ed-5add165cde4c/dfss1kk-43eee3b2-48ae-4783-9f3b-cf362c0d3ae1.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzIzM2E3MjJkLTZjMTYtNGMyMC04NGVkLTVhZGQxNjVjZGU0Y1wvZGZzczFray00M2VlZTNiMi00OGFlLTQ3ODMtOWYzYi1jZjM2MmMwZDNhZTEucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yh65kgusSgeYzpcBUZMHfrnU7VdXvsEXI-5nEdsRxWA"
+              width={100}
+              height={100}
+              alt="Efecto de Imagen"
+            />
+          </div>
         </footer>
       </main>
       <div className="lantern-effect" ref={lanternRef}></div>
-      <MusicPlayer />
+      <div ref={flashEffectRef} className="flash-effect-container"></div>
+      <div ref={redEffectRef} className=""></div>
+      <MusicPlayer
+        position={"izquierdaD"}
+        url={"videoplayback.mp3"}
+        color={"white"}
+        play={false}
+      />
+      {timesFlahsed >= 5 ? (
+        <MusicPlayer url={"ambiente.mp3"} color={"red"} play={true} />
+      ) : (
+        ""
+      )}
     </div>
   );
 }
