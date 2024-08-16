@@ -13,10 +13,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="icon" href="logo.svg" />
-        <style>
-          @import
-          url(`https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@500&family=Dancing+Script&display=swap`);
-        </style>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
       </head>

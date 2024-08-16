@@ -17,8 +17,13 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false);
   const [timesFlahsed, setTimesFlahsed] = useState(0);
   const lanternRef = useRef(null);
+  const soundRef = useRef(null); // Initialize as null
+  useEffect(() => {
+    // Ensure Audio is created only on the client-side
+    soundRef.current = new Audio("efecto.mp3");
+    soundRef.current.volume = 0.1; // Volumen más bajo (0.1 es 10% del volumen máximo)
+  }, []);
 
-  const soundRef = useRef(new Audio("efecto.mp3")); // Reemplaza con la ruta al sonido
   const flashEffectRef = useRef(null);
   const redEffectRef = useRef(null);
   const [timeoutId, setTimeoutId] = useState(null);
@@ -32,8 +37,6 @@ export default function Home() {
     });
   }
 
-  // Ajusta el volumen del audio
-  soundRef.current.volume = 0.1; // Volumen más bajo (0.1 es 10% del volumen máximo)
 
   const handleMouseEnter = (e) => {
     soundRef.current.play(); // Reproduce el sonido inmediatamente
@@ -137,8 +140,8 @@ export default function Home() {
                     </h3>
                     <p className="text-lg mb-6">
                       Like its predecessor, the game follows the survival and
-                      horror theme within the Five Nights at Freddy&quot;s (FNaF)
-                      universe. However, this new version introduces new
+                      horror theme within the Five Nights at Freddy&quot;s
+                      (FNaF) universe. However, this new version introduces new
                       mechanics, more detailed scenarios, and a deeper and
                       expanded story. Players once again face twisted and
                       terrifying versions of the animatronics, now with more
@@ -149,14 +152,14 @@ export default function Home() {
                       The demo offers a glimpse of the updated visual style and
                       gameplay changes, presenting players with a much more
                       interactive and dynamic environment, with new ways to
-                      explore, hide, and survive. The game&quot;s atmosphere remains
-                      unsettling, with a focus on building tension and managing
-                      suspense.
+                      explore, hide, and survive. The game&quot;s atmosphere
+                      remains unsettling, with a focus on building tension and
+                      managing suspense.
                     </p>
                     <h3 className="text-2xl font-bold my-6">Reception:</h3>
                     <p className="text-lg mb-6">
-                      Since its release, The Joy of Creation&quot;s demo on Steam has
-                      been enthusiastically received by the community,
+                      Since its release, The Joy of Creation&quot;s demo on
+                      Steam has been enthusiastically received by the community,
                       especially by fans of the FNaF universe and horror games
                       in general. Players have praised the improvements in
                       visual quality and the intensity of the gameplay
@@ -257,7 +260,8 @@ export default function Home() {
                       published on GameJolt. This game is an expanded and more
                       narrative-driven version of the original game, The Joy of
                       Creation, which was initially a simple survival game
-                      inspired by the Five Nights at Freddy&quot;s (FNaF) series.
+                      inspired by the Five Nights at Freddy&quot;s (FNaF)
+                      series.
                     </p>
                     <h3 className="text-2xl font-bold my-6">
                       Synopsis and Gameplay:
@@ -385,8 +389,8 @@ export default function Home() {
                       developed by Nikson, released in 2016 on GameJolt. This
                       game is a reimagined version of the original title, The
                       Joy of Creation, and is known for its first-person horror
-                      gameplay inspired by the Five Nights at Freddy&quot;s (FNaF)
-                      series.
+                      gameplay inspired by the Five Nights at Freddy&quot;s
+                      (FNaF) series.
                     </p>
                     <div className="image-container">
                       <img
@@ -405,20 +409,20 @@ export default function Home() {
                       In The Joy of Creation: Reborn, players take on the role
                       of a character who must survive a series of dark,
                       labyrinthine environments while being hunted by warped and
-                      terrifyingly menacing versions of FNaF&quot;s animatronics.
-                      Unlike the original FNaF games, where the player is mostly
-                      static, in this game players are given freedom of movement
-                      and must explore the environments to accomplish objectives
-                      and avoid capture.
+                      terrifyingly menacing versions of FNaF&quot;s
+                      animatronics. Unlike the original FNaF games, where the
+                      player is mostly static, in this game players are given
+                      freedom of movement and must explore the environments to
+                      accomplish objectives and avoid capture.
                     </p>
                     <p className="text-lg mb-6">
                       Each level offers a unique gameplay experience, with
                       different animatronics and challenges that test the
-                      player&quot;s ability to stay calm under pressure and use the
-                      environment to their advantage. The atmosphere of the game
-                      is tense, with a focus on darkness, ambient sound, and
-                      time management to create a constant sense of impending
-                      danger.
+                      player&quot;s ability to stay calm under pressure and use
+                      the environment to their advantage. The atmosphere of the
+                      game is tense, with a focus on darkness, ambient sound,
+                      and time management to create a constant sense of
+                      impending danger.
                     </p>
                     <h3 className="text-2xl font-bold my-6">Reception:</h3>
                     <p className="text-lg mb-6">
@@ -432,8 +436,8 @@ export default function Home() {
                       gaming community.
                     </p>
                     <p className="text-lg mb-6">
-                      This title helped cement Nikson&quot;s reputation as a talented
-                      developer in the fanmade games scene and laid the
+                      This title helped cement Nikson&quot;s reputation as a
+                      talented developer in the fanmade games scene and laid the
                       groundwork for future installments such as The Joy of
                       Creation: Story Mode and the remaster planned for 2025.
                     </p>
@@ -526,7 +530,7 @@ export default function Home() {
         <section
           className="relative brightness-200 w-full h-screen flex flex-col items-center justify-center bg-cover bg-center"
           style={{
-            backgroundImage: `url(&quot;https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_eb5d982ce494e885bfddfd5d47795a41f2fc7de5.600x338.jpg?t=1722624886&quot;)`,
+            backgroundImage: `url(https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_eb5d982ce494e885bfddfd5d47795a41f2fc7de5.600x338.jpg?t=1722624886)`,
           }}
         >
           <div className="absolute inset-0 bg-black opacity-60"></div>
