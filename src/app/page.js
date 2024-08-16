@@ -117,7 +117,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 blur-sm"
                 style={{
-                  backgroundImage: `url('https://res.cloudinary.com/dudftt5ha/image/upload/v1723480373/ie1l22fttpummaaow5xs.png')`,
+                  backgroundImage: `url("https://res.cloudinary.com/dudftt5ha/image/upload/v1723480373/ie1l22fttpummaaow5xs.png")`,
                   backgroundPosition: "center",
                 }}
               />
@@ -137,7 +137,7 @@ export default function Home() {
                     </h3>
                     <p className="text-lg mb-6">
                       Like its predecessor, the game follows the survival and
-                      horror theme within the Five Nights at Freddy's (FNaF)
+                      horror theme within the Five Nights at Freddy"s (FNaF)
                       universe. However, this new version introduces new
                       mechanics, more detailed scenarios, and a deeper and
                       expanded story. Players once again face twisted and
@@ -149,13 +149,13 @@ export default function Home() {
                       The demo offers a glimpse of the updated visual style and
                       gameplay changes, presenting players with a much more
                       interactive and dynamic environment, with new ways to
-                      explore, hide, and survive. The game's atmosphere remains
+                      explore, hide, and survive. The game"s atmosphere remains
                       unsettling, with a focus on building tension and managing
                       suspense.
                     </p>
                     <h3 className="text-2xl font-bold my-6">Reception:</h3>
                     <p className="text-lg mb-6">
-                      Since its release, The Joy of Creation's demo on Steam has
+                      Since its release, The Joy of Creation"s demo on Steam has
                       been enthusiastically received by the community,
                       especially by fans of the FNaF universe and horror games
                       in general. Players have praised the improvements in
@@ -244,7 +244,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 blur-sm"
                 style={{
-                  backgroundImage: `url('data:image/jpeg;base64,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')`,
+                  backgroundImage: `url("data:image/jpeg;base64,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")`,
                   backgroundPosition: "center",
                 }}
               />
@@ -257,7 +257,7 @@ export default function Home() {
                       published on GameJolt. This game is an expanded and more
                       narrative-driven version of the original game, The Joy of
                       Creation, which was initially a simple survival game
-                      inspired by the Five Nights at Freddy's (FNaF) series.
+                      inspired by the Five Nights at Freddy"s (FNaF) series.
                     </p>
                     <h3 className="text-2xl font-bold my-6">
                       Synopsis and Gameplay:
@@ -267,7 +267,7 @@ export default function Home() {
                       creator of FNaF, who faces terrifying, disfigured versions
                       of the animatronics of his own creation. The plot unfolds
                       across five chapters, each depicting a different phase of
-                      Scott's life, from childhood to adulthood.
+                      Scott"s life, from childhood to adulthood.
                     </p>
                     <p className="text-lg mb-6">
                       Each level has a unique layout and mechanics, with the
@@ -373,7 +373,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 blur-sm"
                 style={{
-                  backgroundImage: `url('https://s2.dmcdn.net/v/NOnZ11XEwEcKFleEY/x1080')`,
+                  backgroundImage: `url("https://s2.dmcdn.net/v/NOnZ11XEwEcKFleEY/x1080")`,
                   backgroundPosition: "center",
                 }}
               />
@@ -385,7 +385,7 @@ export default function Home() {
                       developed by Nikson, released in 2016 on GameJolt. This
                       game is a reimagined version of the original title, The
                       Joy of Creation, and is known for its first-person horror
-                      gameplay inspired by the Five Nights at Freddy's (FNaF)
+                      gameplay inspired by the Five Nights at Freddy"s (FNaF)
                       series.
                     </p>
                     <div className="image-container">
@@ -405,7 +405,7 @@ export default function Home() {
                       In The Joy of Creation: Reborn, players take on the role
                       of a character who must survive a series of dark,
                       labyrinthine environments while being hunted by warped and
-                      terrifyingly menacing versions of FNaF's animatronics.
+                      terrifyingly menacing versions of FNaF"s animatronics.
                       Unlike the original FNaF games, where the player is mostly
                       static, in this game players are given freedom of movement
                       and must explore the environments to accomplish objectives
@@ -414,7 +414,7 @@ export default function Home() {
                     <p className="text-lg mb-6">
                       Each level offers a unique gameplay experience, with
                       different animatronics and challenges that test the
-                      player's ability to stay calm under pressure and use the
+                      player"s ability to stay calm under pressure and use the
                       environment to their advantage. The atmosphere of the game
                       is tense, with a focus on darkness, ambient sound, and
                       time management to create a constant sense of impending
@@ -432,7 +432,7 @@ export default function Home() {
                       gaming community.
                     </p>
                     <p className="text-lg mb-6">
-                      This title helped cement Nikson's reputation as a talented
+                      This title helped cement Nikson"s reputation as a talented
                       developer in the fanmade games scene and laid the
                       groundwork for future installments such as The Joy of
                       Creation: Story Mode and the remaster planned for 2025.
@@ -526,7 +526,7 @@ export default function Home() {
         <section
           className="relative brightness-200 w-full h-screen flex flex-col items-center justify-center bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_eb5d982ce494e885bfddfd5d47795a41f2fc7de5.600x338.jpg?t=1722624886')`,
+            backgroundImage: `url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/2948730/ss_eb5d982ce494e885bfddfd5d47795a41f2fc7de5.600x338.jpg?t=1722624886")`,
           }}
         >
           <div className="absolute inset-0 bg-black opacity-60"></div>
@@ -622,7 +622,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 "
                 style={{
-                  backgroundImage: `url('https://res.cloudinary.com/dudftt5ha/image/upload/v1723435764/mkmgnuvreujpmvq2fxce.png')`,
+                  backgroundImage: `url("https://res.cloudinary.com/dudftt5ha/image/upload/v1723435764/mkmgnuvreujpmvq2fxce.png")`,
                 }}
               />
               <div className="relative max-w-5xl mx-auto text-center">
