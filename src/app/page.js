@@ -37,7 +37,6 @@ export default function Home() {
     });
   }
 
-
   const handleMouseEnter = (e) => {
     soundRef.current.play(); // Reproduce el sonido inmediatamente
 
@@ -120,7 +119,8 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 blur-sm"
                 style={{
-                  backgroundImage: `url(https://res.cloudinary.com/dudftt5ha/image/upload/v1723480373/ie1l22fttpummaaow5xs.png)`,
+                  backgroundImage:
+                  "url(https://res.cloudinary.com/dudftt5ha/image/upload/v1723480373/ie1l22fttpummaaow5xs.png)",
                   backgroundPosition: "center",
                 }}
               />
@@ -377,7 +377,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 blur-sm"
                 style={{
-                  backgroundImage: `url(https://s2.dmcdn.net/v/NOnZ11XEwEcKFleEY/x1080)`,
+                  backgroundImage: url("https://s2.dmcdn.net/v/NOnZ11XEwEcKFleEY/x1080"),
                   backgroundPosition: "center",
                 }}
               />
