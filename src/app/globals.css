@@ -217,3 +217,9 @@ audio {
   width: 100px;
   height: 20px;
 }
+
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
