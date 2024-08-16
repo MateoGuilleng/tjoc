@@ -377,7 +377,7 @@ export default function Home() {
               <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat filter brightness-50 blur-sm"
                 style={{
-                  backgroundImage: url("https://s2.dmcdn.net/v/NOnZ11XEwEcKFleEY/x1080"),
+                  backgroundImage: "url(https://s2.dmcdn.net/v/NOnZ11XEwEcKFleEY/x1080)",
                   backgroundPosition: "center",
                 }}
               />
